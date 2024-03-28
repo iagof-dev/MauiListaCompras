@@ -54,20 +54,6 @@ namespace MauiListaCompras
                 }
             });
         }
-        private void ref_carregando_Refreshing(object sender, EventArgs e)
-        {
-            lista_produtos.Clear();
-            Task.Run(async () =>
-            {
-                List<Produto> tmp = await App.Db.GetAll();
-                foreach (Produto p in tmp)
-                {
-                    lista_produtos.Add(p);
-                }
-            });
-
-            ref_carregando.IsRefreshing = false;
-        }
 
         private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
